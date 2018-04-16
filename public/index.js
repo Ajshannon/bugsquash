@@ -47,11 +47,7 @@ function gameOver() {
 
     fetch(scoresURL, postRequestOptions) // NOTE 1 (see below)
         .then(response => response.json()) // NOTE 2
-        .then(topThreeScores => { // NOTE 3
-            console.log(topThreeScores);
-            const json = JSON.stringify(topThreeScores);
-            printToMessageBox(json);
-        })
+        
         .catch(error => {
             console.log("A network error has occurred when attempting to perform the POST request:", error)
         })
@@ -127,7 +123,7 @@ function animate(obj) {
 function onTick() {
     let elapsed = (Date.now() - startTime) / 1000;
     //console.log(elapsed);
-    countdown = 20 - Math.floor(elapsed);
+    countdown = 5 - Math.floor(elapsed);
     if (countdown >= 0) {
         countdownSpan.innerHTML = countdown;
         scoreSpan.innerHTML = score;
