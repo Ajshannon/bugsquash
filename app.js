@@ -2,9 +2,9 @@ const path = require("path")
 const express = require('express')
 const app = express()
 const publicDirectoryPath = path.join(__dirname, "public")
-
+const cors = require('cors')
 let scores = []
-
+app.use(cors());
 app.use(express.json())
 app.use(express.static(publicDirectoryPath))
 
